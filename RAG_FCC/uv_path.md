@@ -12,3 +12,5 @@
     ";C:\Users\<username>\AppData\Roaming\Python\Python313\Scripts",
     "User"
 )
+
+5. also if path not choosen add it from ctrl+shift+p = D:\Agentic_AI_Learn\RAG_FCC\.venv\Scripts\python.exe
