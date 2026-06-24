@@ -69,6 +69,22 @@ def similarity_search_with_scores():
         final_score = 1/(1+score)
         print(f"Result {i+1}: {doc.page_content} (Score: {final_score:.4f}, Source: {doc.metadata['source']})")
     
+def metadata_filtering():
+     vectorstore = Chroma.from_documents(
+        documents=SAMPLE_DOCS, embedding=OllamaEmbeddings(model="nomic-embed-text")
+     )
+     query = "What databases are available?"
+
+     filtered_criteria = {"topic": "database"}
+     filtered_results = vectorstore.similarity_search(
+          query, k=5, filter=filtered_criteria
+     )
+
+     print(f"Results with metadata filtering for {query}:")
+     for i,doc in enumerate(filtered_results):
+          print(f"Result {i+1}: {doc.page_content} (Source: {doc.metadata['source']})")
+
 if __name__ == "__main__":
     #chroma_basics()
-    similarity_search_with_scores()
+    #similarity_search_with_scores()
+    metadata_filtering()
