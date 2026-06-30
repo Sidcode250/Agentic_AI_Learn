@@ -19,7 +19,7 @@ for doc in documents:
 query_text = "Hello World!"
 
 results = collection.query(
-    query_texts=[query_text],
+    query_texts=[query_text], 
     n_results=3,
 )
 
